@@ -48,13 +48,14 @@ export default function Main() {
                 // エラー表示
 
             } else {
-                let data = "あああああああああああああああああ";
+                console.debug(res.data);
+                let data = JSON.stringify(res.data);
 //                    chibanList.map((row, index) => ( data = data + row.address_chiban + "\n" ));
                 //BOMを付与する（Excelでの文字化け対策）
                 const bom = new Uint8Array([0xef, 0xbb, 0xbf]);
                 const blob = new Blob([bom, data], { type: "text/csv" });
                 //ダウンロード
-                saveAs(blob, `aaaaaa.geojson`);
+                saveAs(blob, `${pointNum}.geojson`);
 
             }
         }
